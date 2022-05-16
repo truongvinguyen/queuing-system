@@ -1,5 +1,5 @@
 body {
-    font-family: "Roboto", sans-serif;
+    font-family: "Nunito", sans-serif;
     background-color: #fff;
 }
 
@@ -20,7 +20,7 @@ h6,
 .h4,
 .h5,
 .h6 {
-    font-family: "Roboto", sans-serif;
+    font-family: "Nunito", sans-serif;
 }
 
 a {
@@ -76,7 +76,7 @@ h2 {
     -webkit-box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.1);
     box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.1);
     border-radius: 10px;
-    height: 54px;
+    height: 40px;
     background: #fff;
 }
 
@@ -103,6 +103,7 @@ h2 {
     height: 40px;
     padding-left: 30px;
     padding-right: 30px;
+    margin: 15px;
 }
 
 .half .forgot-pass {
@@ -153,12 +154,12 @@ h2 {
 }
 
 .control input:checked~.control__indicator {
-    background: #fb771a;
+    background: #FF9138;
 }
 
 .control:hover input:not([disabled]):checked~.control__indicator,
 .control input:checked:focus~.control__indicator {
-    background: #fb8633;
+    background: #FF9138;
 }
 
 .control input:disabled~.control__indicator {
@@ -168,7 +169,7 @@ h2 {
 }
 
 .control__indicator:after {
-    font-family: 'icomoon';
+    font-family: 'Nunito';
     content: '\e5ca';
     position: absolute;
     display: none;
@@ -201,7 +202,12 @@ h2 {
     opacity: .2;
 }
 
-.login-left img {
+.login-left .frame {
+    width: 750px;
+    height: 650px;
+    
+}
+.login-left .login-banner {
     width: 800px;
     height: 700px;
     
@@ -219,7 +225,7 @@ h2 {
 }
 
 .logo {
-    padding-bottom: 70px;
+    padding-bottom: 94px;
 }
 
 .login-content .form-control:focus {
@@ -237,4 +243,20 @@ h2 {
 .bg_left .caulenh{
     margin-left: 500px;
 }
+.huy{
+    background-color: white;
+    color: #FF9138;
+    border: 1px solid #FF9138;
+}
+.contents h3 {
+    font-size: 22px;
+    font-weight: bold;
+    margin: auto;
+}
+.contents .title{
+    margin: 15px;
+}
 
+.forgot-content{
+    margin-bottom: 120px;
+}
