@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Máy chủ: 127.0.0.1
--- Thời gian đã tạo: Th5 26, 2022 lúc 10:19 AM
+-- Thời gian đã tạo: Th6 02, 2022 lúc 09:15 AM
 -- Phiên bản máy phục vụ: 10.4.18-MariaDB
 -- Phiên bản PHP: 8.0.3
 
@@ -28,29 +28,49 @@ SET time_zone = "+00:00";
 --
 
 CREATE TABLE `device` (
+  `device_code` varchar(10) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `device_category` int(10) NOT NULL,
   `id` bigint(20) UNSIGNED NOT NULL,
   `device_name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `device_username` varchar(225) COLLATE utf8mb4_unicode_ci NOT NULL,
   `device_id` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `device_status` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `device_conection` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `device_title` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
-  `updated_at` timestamp NULL DEFAULT NULL
+  `updated_at` timestamp NULL DEFAULT NULL,
+  `device_password` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
 -- Đang đổ dữ liệu cho bảng `device`
 --
 
-INSERT INTO `device` (`id`, `device_name`, `device_id`, `device_status`, `device_conection`, `device_title`, `created_at`, `updated_at`) VALUES
-(1, 'kiosk', '192.168.1.10', '1', '2', 'Khám tim mạch, khám mắt', NULL, NULL),
-(2, 'kiosk', '192.168.1.10', '1', '1', 'Khám tim mạch, khám mắt', NULL, NULL),
-(3, 'kiosk', '192.168.1.10', '2', '1', 'Khám tim mạch, khám mắt', NULL, NULL),
-(4, 'kiosk', '192.168.1.10', '2', '1', 'Khám tim mạch, khám mắt', NULL, NULL),
-(5, 'kiosk', '192.168.1.10', '2', '1', 'Khám tim mạch, khám mắt', NULL, NULL),
-(6, 'kiosk', '192.168.1.10', '2', '2', 'Khám tim mạch, khám mắt', NULL, NULL),
-(7, 'kiosk', '192.168.1.10', '1', '1', 'Khám tim mạch, khám mắt', NULL, NULL),
-(8, 'kiosk', '192.168.1.10', '2', '1', 'Khám tim mạch, khám mắt', NULL, NULL);
+INSERT INTO `device` (`device_code`, `device_category`, `id`, `device_name`, `device_username`, `device_id`, `device_status`, `device_conection`, `device_title`, `created_at`, `updated_at`, `device_password`) VALUES
+('koisk', 1, 9, 'máy lọc nước', 'vi', '1234', '0', '1', 'uống nước', NULL, NULL, 12345),
+('123', 2, 10, 'máy giặt', 'vi', '11234', '1', '1', 'giặt ủi,giặt sấy', NULL, NULL, 1234),
+('koisk', 2, 11, 'máy lọc nước uống', 'truongvi', '12345', '1', '1', 'lọc nước', NULL, NULL, 123456789),
+('1233', 1, 12, 'máy giặt', 'vi 2', '1234567', '0', '0', 'giạt ủi', NULL, NULL, 123456),
+('123', 2, 13, 'thiết bị demo edit', 'truongvi', '123456', '0', '1', 'demo 1,demo 2,demo 3', NULL, NULL, 123456);
+
+-- --------------------------------------------------------
+
+--
+-- Cấu trúc bảng cho bảng `device_category`
+--
+
+CREATE TABLE `device_category` (
+  `id` int(10) NOT NULL,
+  `category_name` varchar(225) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Đang đổ dữ liệu cho bảng `device_category`
+--
+
+INSERT INTO `device_category` (`id`, `category_name`) VALUES
+(1, 'Kiosk'),
+(2, 'Kiosk 2');
 
 -- --------------------------------------------------------
 
@@ -89,7 +109,8 @@ INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
 (2, '2014_10_12_100000_create_password_resets_table', 1),
 (3, '2019_08_19_000000_create_failed_jobs_table', 1),
 (4, '2019_12_14_000001_create_personal_access_tokens_table', 1),
-(5, '2022_05_26_053156_device', 2);
+(5, '2022_05_26_053156_device', 2),
+(6, '2022_05_31_073424_service', 3);
 
 -- --------------------------------------------------------
 
@@ -124,6 +145,37 @@ CREATE TABLE `personal_access_tokens` (
 -- --------------------------------------------------------
 
 --
+-- Cấu trúc bảng cho bảng `service`
+--
+
+CREATE TABLE `service` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `service_code` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `service_content` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `service_name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `service_status` int(11) NOT NULL DEFAULT 1,
+  `service_min` int(10) DEFAULT NULL,
+  `service_max` int(10) DEFAULT NULL,
+  `service_Prefix` int(10) DEFAULT NULL,
+  `service_Surfix` int(10) DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Đang đổ dữ liệu cho bảng `service`
+--
+
+INSERT INTO `service` (`id`, `service_code`, `service_content`, `service_name`, `service_status`, `service_min`, `service_max`, `service_Prefix`, `service_Surfix`, `created_at`, `updated_at`) VALUES
+(1, 'kiosk', 'khám tổng quát', 'khám tổng quát', 1, 1, 190, NULL, NULL, NULL, NULL),
+(2, 'kiosk 3', 'abcd', 'khám tổng quát', 0, 1, 190, NULL, NULL, NULL, NULL),
+(3, 'kiosk 3', 'abcd', 'Rửa mắt', 0, 1, 190, NULL, NULL, NULL, NULL),
+(4, 'kiosk 4', 'qưertyu', 'Khám mắt', 0, 1, 190, NULL, NULL, NULL, NULL),
+(5, 'kiosk 5', 'ádfghjkl', 'khám tổng quát', 1, 1, 190, NULL, NULL, NULL, NULL);
+
+-- --------------------------------------------------------
+
+--
 -- Cấu trúc bảng cho bảng `users`
 --
 
@@ -143,7 +195,7 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `name`, `email`, `email_verified_at`, `password`, `remember_token`, `created_at`, `updated_at`) VALUES
-(1, 'Nguyễn Trường vi', 'nguyentruongvi2203@gmail.com', NULL, '$2y$10$e.jV8gdcXULa9eXPGZ3TUOX7/0QrbBYW5Yl4VzhQxsUFbxM1nuhtm', 'ZFkIqXWDdfkeXZ2Vk347mzgN0Sz5kBeTW3xawvLWNBsIKG6cLmO9XkJOkEBy', '2022-05-25 21:12:10', '2022-05-26 00:59:58');
+(1, 'Nguyễn Trường vi', 'nguyentruongvi2203@gmail.com', NULL, '$2y$10$c7PZ.fAmCM/RiAPU1eT8SuBHP5aIjl8eMuulAW3vSBwkr0jdzVXsK', 'dxzIvgcvxiuDVmHbprG1ix7eVLfs9hMigr9cj2vvGOupS1HivTGytHJ6kUEN', '2022-05-25 21:12:10', '2022-05-29 22:14:20');
 
 --
 -- Chỉ mục cho các bảng đã đổ
@@ -153,6 +205,12 @@ INSERT INTO `users` (`id`, `name`, `email`, `email_verified_at`, `password`, `re
 -- Chỉ mục cho bảng `device`
 --
 ALTER TABLE `device`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Chỉ mục cho bảng `device_category`
+--
+ALTER TABLE `device_category`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -183,6 +241,12 @@ ALTER TABLE `personal_access_tokens`
   ADD KEY `personal_access_tokens_tokenable_type_tokenable_id_index` (`tokenable_type`,`tokenable_id`);
 
 --
+-- Chỉ mục cho bảng `service`
+--
+ALTER TABLE `service`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Chỉ mục cho bảng `users`
 --
 ALTER TABLE `users`
@@ -197,7 +261,13 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT cho bảng `device`
 --
 ALTER TABLE `device`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+
+--
+-- AUTO_INCREMENT cho bảng `device_category`
+--
+ALTER TABLE `device_category`
+  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT cho bảng `failed_jobs`
@@ -209,13 +279,19 @@ ALTER TABLE `failed_jobs`
 -- AUTO_INCREMENT cho bảng `migrations`
 --
 ALTER TABLE `migrations`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT cho bảng `personal_access_tokens`
 --
 ALTER TABLE `personal_access_tokens`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT cho bảng `service`
+--
+ALTER TABLE `service`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT cho bảng `users`

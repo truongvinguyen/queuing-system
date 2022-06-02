@@ -12,9 +12,12 @@ class device extends Model
     protected $table = 'device';
     protected $fillable = [
 
-       
+        'device_code',
+        'device_category',
         'device_name',
-        'devive_id',
+        'device_username',
+        'device_id',
+        'device_password',
         'device_status',
         'device_conection',
         'device_title',    
