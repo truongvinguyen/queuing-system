@@ -6,10 +6,10 @@
         <span class="logo_name"><img src="images/Logoalta.png" alt=""></span>
     </div>
     <ul class="nav-links">
-        <li class="" style="width:200px;">
+        <li class="active" >
             <a href="/" class="text-primary">
                 <i class='bx bxs-dashboard'></i>
-                <span class="links_nameative">Dashboard</span>
+                <span class="links_name">Dashboard</span>
             </a>
         </li>
         <li>
@@ -19,7 +19,7 @@
             </a>
         </li>
         <li>
-            <a href="#" class="">
+            <a href="/dich-vu" class="">
                 <i class='bx bx-conversation'></i>
                 <span class="links_name">Dịch vụ</span>
             </a>

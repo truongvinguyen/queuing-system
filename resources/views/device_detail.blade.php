@@ -8,19 +8,19 @@
   </div>
   <ul class="nav-links">
     <li>
-        <a href="/" class="active">
+        <a href="/" >
             <i class='bx bxs-dashboard'></i>
             <span class="links_name">Dashboard</span>
         </a>
     </li>
-    <li>
-        <a href="/thiet-bi" class="">
+    <li class="active">
+        <a href="/thiet-bi" >
             <i class='bx bx-laptop'></i>
-            <span class="links_nameative">Thiết bị</span>
+            <span class="links_name">Thiết bị</span>
         </a>
     </li>
     <li>
-        <a href="#" class="">
+        <a href="/dich-vu" class="">
             <i class='bx bx-conversation'></i>
             <span class="links_name">Dịch vụ</span>
         </a>
@@ -37,9 +37,6 @@
             <span class="links_name">Báo cáo</span>
         </a>
     </li>
-
-
-
     <li>
         <a href="#">
             <i class='bx bx-cog'></i>

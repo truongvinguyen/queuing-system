@@ -7,19 +7,19 @@
   </div>
   <ul class="nav-links">
             <li>
-                <a href="/" class="active">
+                <a href="/" >
                     <i class='bx bxs-dashboard'></i>
                     <span class="links_name">Dashboard</span>
                 </a>
             </li>
-            <li>
+            <li class="active">
                 <a href="/thiet-bi" class="">
                     <i class='bx bx-laptop'></i>
-                    <span class="links_nameative">Thiết bị</span>
+                    <span class="links_name">Thiết bị</span>
                 </a>
             </li>
             <li>
-                <a href="#" class="">
+                <a href="/dich-vu" class="">
                     <i class='bx bx-conversation'></i>
                     <span class="links_name">Dịch vụ</span>
                 </a>
@@ -97,7 +97,6 @@
                 </div>
                 <div class="form-group col-md-6">
                   <label for="exampleInputPassword1">Loại thiết bị: <span class="text-danger">*</span></label>
-                  <input name="" type="text"  placeholder="Nhập loại thiết bị">
                   <select name="device_category" id="" class="form-control">
                     @foreach($data as $item)
                     <option value="{{$item->id}}">{{$item->category_name}}</option>

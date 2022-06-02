@@ -9,7 +9,13 @@ use Illuminate\Support\Facades\DB;
 class DeviceController extends Controller
 {
     public function index(){
-        $data= device::paginate(7);
+        if($key = request()->key){
+            $data=DB::table('device')
+            ->select('*')
+            ->where('device_name','like','%'.$key.'%')
+            ->paginate(7);
+        }else{$data= device::paginate(7);}
+      
         return view('device',compact('data'));
     }
     public function create(){
@@ -56,5 +62,21 @@ class DeviceController extends Controller
                    
     ]);
     return redirect('/thiet-bi')->withSuccess('Cập nhật thành công');
+    }
+    public function device_active(){
+        $data = device::where('device_status',1)->paginate(7);
+        return view('device',compact('data'));
+    }
+    public function device_shut_dow(){
+        $data = device::where('device_status',0)->paginate(7);
+        return view('device',compact('data'));
+    }
+    public function device_connecting(){
+        $data = device::where('device_conection',1)->paginate(7);
+        return view('device',compact('data'));
+    }
+    public function device_disconnect(){
+        $data = device::where('device_conection',0)->paginate(7);
+        return view('device',compact('data'));
     }
 }
