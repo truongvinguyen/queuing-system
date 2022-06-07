@@ -6,8 +6,8 @@
         <span class="logo_name"><img src="images/Logoalta.png" alt=""></span>
     </div>
     <ul class="nav-links">
-        <li class="active" >
-            <a href="/" class="text-primary">
+        <li>
+            <a href="/">
                 <i class='bx bxs-dashboard'></i>
                 <span class="links_name">Dashboard</span>
             </a>
@@ -24,7 +24,7 @@
                 <span class="links_name">Dịch vụ</span>
             </a>
         </li>
-        <li>
+        <li class="active">
             <a href="/number" class="">
                 <i class='bx bx-layer'></i>
                 <span class="links_name">Cấp số</span>
@@ -71,10 +71,10 @@
 <section class="home-section">
     <nav>
         <div class="sidebar-button">
-
-            <span class="dashboard">Thông tin cá nhân</span>
+            <span class="text-secondary">Thiết bị</span> <i class='bx bx-chevron-right text-secondary'></i><span
+                class="dashboard text-secondary">Danh sách cấp số</span><i
+                class='bx bx-chevron-right text-secondary'></i><span class="dashboard">Cấp số</span>
         </div>
-
         <div class="profile-details d-flex justify-content-end align-items-center">
             <div class="container d-flex justify-content-end align-items-center">
                 <div class="row">
@@ -87,33 +87,53 @@
                                 <span>Xin chào</span>
                             </div>
                             <div class="admin_name col-md-12">
-                                <span> {{ Auth::user()->name }}</span>
+                                <span>Nguyễn Trường Vi</span>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-
-
         </div>
     </nav>
+    <div class="home-content" id="device">
+        <h3 class="text-primary" style="margin-left: 30px;font-size: 24px;margin-top: 25px;">Quản lý dịch vụ</h3>
+        <form action="" method="post">
+            <div class="form-box number" style="min-height: 604px;margin-top: 28px;">
+                <div class="col-md-12">
+                    <div class="form">
+                        <div class="row d-flex justify-content-center">
+                            <h1 class="title col-md-12 text-center">CẤP SỐ MỚI</h1>
+                            <span class="col-md-12 text-center">Dịch vụ khách hàng lựa chọn</span>
+                            <form class="content col-md-12 text-center">                             
+                                <select class="form-control" name="" id="">                             
+                                </select>                           
+                                <div class="col-md-12 d-flex justify-content-center align-items-center" style="position: absolute;
+                                top: 225px;">
+                                    <button class="btn-huy btn-add-device  ">Hủy bỏ</button>
+                                    <button class="btn-add btn-add-device  btn btn-primary">In số</button>
+                                </div>
+                            </form>
+                          
+                        </div>
+                    </div>
+                </div>
 
-    <div class="home-content infor">
-        <div class="container cart-box">
-            Xin chào {{ Auth::user()->name }}
-        </div>
+            </div>
+
+        </form>
     </div>
 </section>
 
-<script>
+<!-- <script>
     let sidebar = document.querySelector(".sidebar");
     let sidebarBtn = document.querySelector(".sidebarBtn");
     sidebarBtn.onclick = function () {
-        sidebar.classList.toggle("active");
-        if (sidebar.classList.contains("active")) {
-            sidebarBtn.classList.replace("bx-menu", "bx-menu-alt-right");
-        } else
-            sidebarBtn.classList.replace("bx-menu-alt-right", "bx-menu");
+      sidebar.classList.toggle("active");
+      if (sidebar.classList.contains("active")) {
+        sidebarBtn.classList.replace("bx-menu", "bx-menu-alt-right");
+      } else
+        sidebarBtn.classList.replace("bx-menu-alt-right", "bx-menu");
     }
-</script>
+  </script> -->
+
 @endsection

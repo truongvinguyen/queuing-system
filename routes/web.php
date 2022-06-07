@@ -33,6 +33,13 @@ Route::get('/device-disconnect', [App\Http\Controllers\DeviceController::class, 
 //dịch vụ
 Route::get('/dich-vu', [App\Http\Controllers\ServiceController::class, 'index'])->name('');
 Route::get('/them-dich-vu', [App\Http\Controllers\ServiceController::class, 'create'])->name('');
-Route::post('/luu-dich-vu', [App\Http\Controllers\ServiceController::class, 'save'])->name('');
+Route::post('/luu-dich-vu', [App\Http\Controllers\ServiceController::class, 'savse'])->name('');
 Route::get('/service-active', [App\Http\Controllers\ServiceController::class, 'service_active'])->name('');
 Route::get('/service-shut-dow', [App\Http\Controllers\ServiceController::class, 'service_shut_dow'])->name('');
+Route::get('/service-detail/{id}', [App\Http\Controllers\ServiceController::class, 'service_detail'])->name('');
+Route::get('/edit-service/{id}', [App\Http\Controllers\ServiceController::class, 'edit_service'])->name('');
+Route::post('/update-service/{id}', [App\Http\Controllers\ServiceController::class, 'update_service'])->name('');
+
+//cấp số
+Route::get('/number', [App\Http\Controllers\NumberController::class, 'index'])->name('');
+Route::get('/add-number', [App\Http\Controllers\NumberController::class, 'create'])->name('');
