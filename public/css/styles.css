@@ -82,9 +82,7 @@
   bottom: 0;
   width: 100%;
   background-color: #FFF2E7;
-  margin: 15px;
   color: #FF9138;
-  ma
 }
 
 .sidebar .nav-links .log_out .links_name {
@@ -1072,22 +1070,22 @@ table td {
   width: 80px;
   height: 94px;
   left: 1348px;
-  top: 150px;
-
+  top: 160px;
 }
 
 .form-box {
   background-color: #fff;
-    margin: 0 20px;
-    border-radius: 12px;
-    margin: 0 20px;
-    width: calc(1000px -200px);
-    padding-top: 20px;
-    box-shadow: 2px 2px 8px rgb(232 239 244 / 80%);
-    border-radius: 16px;
-    /* height: 550px; */
-    margin-top: 47px;
-    min-height: 550px;
+  margin: 0 20px;
+  border-radius: 12px;
+  margin: 0 20px;
+  width: calc(1000px -200px);
+  padding-top: 20px;
+  box-shadow: 2px 2px 8px rgb(232 239 244 / 80%);
+  border-radius: 16px;
+  /* height: 550px; */
+  margin-top: 47px;
+  min-height: 550px;
+  position: relative;
 }
 
 .form-box .form-control {
@@ -1111,28 +1109,31 @@ table td {
 .form-box .form-group {
   margin-top: 10px;
 }
-.btn-add-device{
+
+.btn-add-device {
   width: 147px !important;
   height: 48px !important;
   margin-top: 30px;
   background: #FFF2E7;
   /* Orange/$-Orange-400 */
-  
+
   border: 1.5px solid #FF9138;
   /* down */
-  
+
   box-shadow: 0px 0px 6px #E7E9F2;
   border-radius: 8px;
   padding: 10px 24px;
-gap: 8px;
-margin: 25px;
+  gap: 8px;
+  margin: 25px;
 
 }
-.btn-huy{
+
+.btn-huy {
   background-color: #FFF2E7;
   border: 1px solid #FF9138;
 
 }
+
 .box-detail {
   background-color: #fff;
   padding: 14px 0px;
@@ -1147,8 +1148,8 @@ margin: 25px;
   height: 604px;
   max-width: 1278px;
 }
-.title-detail
-{
+
+.title-detail {
   font-family: 'Nunito';
   font-style: normal;
   font-weight: 600;
@@ -1156,26 +1157,32 @@ margin: 25px;
   line-height: 24px;
   width: 191px;
 }
-.box-detail .detail{
+
+.box-detail .detail {
   margin-left: 0px !important;
 }
-.edit-device{
+
+.edit-device {
   position: absolute;
-    right: 0px;
-    top: 117px;
+  right: 0px;
+  top: 117px;
 }
-.edit-device img{ 
-  width:80px ;
-  height:94px ;
+
+.edit-device img {
+  width: 80px;
+  height: 94px;
 }
-.date{
+
+.date {
   width: 150px !important;
   height: 44px !important;
 }
-.service-form{
+
+.service-form {
   max-width: 100% !important;
 }
-.service-content{
+
+.service-content {
   width: 661px;
   height: 137px;
   background: #FFFFFF;
@@ -1185,7 +1192,8 @@ margin: 25px;
   order: 1;
   flex-grow: 0;
 }
-.square{
+
+.square {
   position: absolute;
   width: 20px;
   height: 20px;
@@ -1195,39 +1203,52 @@ margin: 25px;
   border: 1.5px solid #4277FF;
   border-radius: 4px;
 }
-.list-group-item-service{
+
+.list-group-item-service {
   position: relative;
   border: none !important;
   margin-left: 24px;
   margin-top: 12px;
+  background-color: rgba(255, 255, 255, 0) !important;
+  border: 1px solid rgba(0, 0, 0, 0.125);
+  margin-left: -7px;
 }
-.form-control-service1 ,.form-control-service2{
+
+.form-control-service1,
+.form-control-service2 {
   max-width: 61px;
 }
-.form-control-service1{
+
+.form-control-service1 {
   position: absolute;
   top: 2px;
   left: 165px;
 }
-.form-control-service2{
+
+.form-control-service2 {
   position: absolute;
   top: 2px;
   left: 290px;
 }
-.active{
-  background-color:#FF9138 !important;
-  
+
+.active {
+  background-color: #FF9138 !important;
+
 }
-.active span { 
+
+.active span {
   color: white !important;
 }
-.active i { 
+
+.active i {
   color: white !important;
 }
-.dropdown-menu{
+
+.dropdown-menu {
   width: 300px !important;
   border-radius: 15px !important;
 }
+
 .dropdown-toggle:after {
   display: inline-block;
   margin-left: 209px !important;
@@ -1238,6 +1259,108 @@ margin: 25px;
   border-bottom: 0;
   border-left: 0.3em solid transparent;
   margin-top: 7px !important;
-  color:#FF9138 !important;
+  color: #FF9138 !important;
   font-size: 30px !important;
+  position: absolute;
+}
+
+.service-item-detail {
+  font-family: 'Nunito';
+  font-style: normal;
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 24px;
+}
+
+.back-device {
+  position: absolute;
+  top: 84px;
+  right: -181px;
+  box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+}
+
+.add-service {
+  position: absolute;
+  top: -19px;
+  /* left: 907px; */
+  right: -181px;
+}
+
+.number {
+  padding: 14px 0px;
+  margin: 0 20px;
+  border-radius: 12px;
+  padding: 14px 0px;
+  margin: 0 20px;
+  border-radius: 12px;
+  width: calc(1048px -200px);
+  padding-right: 65px;
+}
+
+.number .form-control {
+
+  padding: 10px 12px;
+  height: 44px;
+  background: #FFFFFF;
+  border: 1.5px solid #D4D4D7 !important;
+  border-radius: 8px;
+}
+
+.form-group {
+  margin-bottom: 0 !important;
+}
+
+.number .date {
+  width: 193.82px !important;
+}
+
+.number .dropdown-menu {
+  width: 195px !important;
+}
+
+.number .title {
+  font-family: 'Nunito';
+  font-style: normal;
+  font-weight: 700;
+  font-size: 32px;
+  line-height: 48px;
+  /* identical to box height, or 150% */
+
+
+  /* Orange/$-Orange-500 */
+
+  color: #FF7506;
+}
+
+.number .form {
+  position: absolute;
+  width: 400px;
+  height: 400px;
+  top: 15px;
+  left: 50%;
+  transform: translate(-50%, 10px);
+}
+
+.number select {
+  max-width: 400px;
+  height: 44px;
+  background: #FFFFFF;
+  border: 1.5px solid #D4D4D7;
+  border-radius: 8px;
+  margin-top: 15px;
+}
+
+.number span {
+  font-family: 'Nunito';
+  font-style: normal;
+  font-weight: 700;
+  font-size: 20px;
+  line-height: 30px;
+  /* identical to box height, or 150% */
+
+
+  /* Gray/$-gray-400 Text */
+
+  color: #535261;
+  margin-top: 10px;
 }

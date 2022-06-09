@@ -3,7 +3,7 @@
 @section('content')
 <div class="sidebar">
     <div class="logo-details d-flex justify-content-center align-items-center">
-        <span class="logo_name"><img src="images/Logoalta.png" alt=""></span>
+        <span class="logo_name"><img src="/images/Logoalta.png" alt=""></span>
     </div>
     <ul class="nav-links">
         <li>
@@ -97,7 +97,7 @@
     </nav>
     <div class="home-content" id="device">
         <h3 class="text-primary" style="margin-left: 30px;font-size: 24px;margin-bottom: 15px;">Quản lý dịch vụ</h3>
-        <form action="/luu-dich-vu" method="post">
+        <form action="/update-service/{{$data->id}}" method="post">
             <div class="form-box">
                 <div class="col-md-12">
                     <h5 class="text-primary" style="padding-left: 12px;">Thông tin dịch vụ</h5>
@@ -110,7 +110,7 @@
                                         <div class="form-group">
                                             <label for="exampleInputEmail1">Mã dịch vụ: <span
                                                     class="text-danger">*</span> </label>
-                                            <input name="service_code" type="text" class="form-control"
+                                            <input value="{{$data->service_code}}" name="service_code" type="text" class="form-control"
                                                 placeholder="Nhập tên thiết bị">
                                         </div>
                                     </div>
@@ -118,7 +118,7 @@
                                         <div class="form-group">
                                             <label for="exampleInputEmail1">Tên dịch vụ: <span
                                                     class="text-danger">*</span> </label>
-                                            <input name="service_name" type="text" class="form-control"
+                                            <input value="{{$data->service_name}}" name="service_name" type="text" class="form-control"
                                                 placeholder="Nhập tên thiết bị">
                                         </div>
                                     </div>
@@ -128,7 +128,7 @@
                                         <label for="exampleInputEmail1">Mô tả: <span
                                                 class="text-danger">*</span> </label>
                                         <textarea class="service-content" name="service_content" id="" placeholder="Mô tả dịch vụ"
-                                            style="padding: 10px;"></textarea>
+                                            style="padding: 10px;">{{$data->service_content}}</textarea>
                                     </div>
                                 </div>
                             </div>
@@ -139,20 +139,19 @@
                     <h5 class="text-primary" style="padding-left: 12px;">Quy tắc cấp số</h5>
                     <div class="row">
                         <div class="col-md-12">
-                            <ul class="list-group list-group-flush">
-                                <li class="list-group-item list-group-item-service"> <input class="square" type="checkbox"> Tăng tự động từ: <input name="service_min" class="form-control form-control-service1" type="text"> <span style="margin-left: 85px;">đến</span> <input name="service_max" class="form-control form-control-service2" type="text"></li>
-                                <li class="list-group-item list-group-item-service"> <input class="square" type="checkbox">Prefix: <input name="service_Prefix" class="form-control form-control-service1" type="text"> </li>
-                                <li class="list-group-item list-group-item-service"> <input class="square" type="checkbox">Surfix: <input name="service_Surfix" class="form-control form-control-service1" type="text"> </li>
-                                <li class="list-group-item list-group-item-service"> <input class="square" type="checkbox">Reset mỗi ngày</li>   
-                              </ul>
-                           
+                            <ul class="list-group list-group-flush" style="margin-left: 25px;">
+                                <li class="list-group-item list-group-item-service"><input class="square" type="checkbox">Tăng tự động từ: <input name="service_min" value="{{$data->service_min}}" class="form-control form-control-service1" type="text"> <span style="margin-left: 85px;">đến</span> <input name="service_max" value="{{$data->service_max}}" class="form-control form-control-service2" type="text"></li>
+                                <li class="list-group-item list-group-item-service"><input class="square" type="checkbox">Prefix: <input name="service_Prefix" value="{{$data->service_Prefix}}" class="form-control form-control-service1" type="text"> </li>
+                                <li class="list-group-item list-group-item-service"><input class="square" type="checkbox">Surfix: <input name="service_Surfix" value="{{$data->service_Surfix}}" class="form-control form-control-service1" type="text"> </li>
+                                <li class="list-group-item list-group-item-service"><input class="square" type="checkbox">Reset mỗi ngày</li>   
+                            </ul>         
                         </div>
                     </div>
                 </div>
             </div>
             <div class="col-md-12 d-flex justify-content-center align-items-center">
-                <button class="btn-huy btn-add-device  ">Hủy bỏ</button>
-                <button class="btn-add btn-add-device  btn btn-primary">Thêm</button>
+                <button class="btn-huy btn-add-device">Hủy bỏ</button>
+                <button class="btn-add btn-add-device  btn btn-primary">Lưu</button>
             </div>
         </form>
     </div>

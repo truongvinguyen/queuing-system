@@ -3,7 +3,7 @@
 @section('content')
 <div class="sidebar">
     <div class="logo-details d-flex justify-content-center align-items-center">
-        <span class="logo_name"><img src="images/Logoalta.png" alt=""></span>
+        <span class="logo_name"><img src="/images/Logoalta.png" alt=""></span>
     </div>
     <ul class="nav-links">
         <li>
@@ -18,13 +18,13 @@
                 <span class="links_name">Thiết bị</span>
             </a>
         </li>
-        <li class="active">
-            <a href="#" class="">
+        <li>
+            <a href="/dich-vu" class="">
                 <i class='bx bx-conversation'></i>
                 <span class="links_name">Dịch vụ</span>
             </a>
         </li>
-        <li>
+        <li class="active">
             <a href="/number" class="">
                 <i class='bx bx-layer'></i>
                 <span class="links_name">Cấp số</span>
@@ -96,25 +96,59 @@
         </div>
     </nav>
     <div class="home-content" id="device">
-        <div class="device">
+        <div class="number">
             <div class="col-md-12 ">
-                <h3 class="text-primary" style="margin-bottom: 30px;">Quản lý dịch vụ</h3>
+                <h3 class="text-primary" style="margin-bottom: 30px;">Danh sách thiết bị</h3>
                 <div class="row">
-                    <div class="col-md-3">
+                    <div class="col-md-2">
                         <div class="form-group">
-                            <label for="inputEmail4" class="form-label">Trạng thái hoạt động</label>
+                            <label for="inputEmail4" class="form-label">Tên dịch vụ</label>
+                            <div class="dropdown">
+                                <button style="text-align: left;padding: 3px;" class="form-control  dropdown-toggle"
+                                    type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown"
+                                    aria-expanded="false">
+                                    Tất cả
+                                </button>
+                                <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                                    <li><a class="dropdown-item" href="/number">tất cả</a></li>
+                                    @foreach($service as $item)
+                                    <li><a class="dropdown-item" href="/ten-dich-vu/<?php echo str_replace(" ","-",$item->service_name) ?>">{{$item->service_name}}</a></li>
+                                    @endforeach
+                                   
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-2">
+                        <div class="form-group">
+                            <label for="inputEmail4" class="form-label">Tình trạng</label>
                             <button style="text-align: left;padding: 3px;" class="form-control  dropdown-toggle"
                                 type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
                                 Tất cả
                             </button>
                             <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-                                <li><a class="dropdown-item" href="/dich-vu">tất cả</a></li>
-                                <li><a class="dropdown-item" href="/service-active">đang hoạt động</a></li>
-                                <li><a class="dropdown-item" href="/service-shut-dow">ngưng hoạt động</a></li>
+                                <li><a class="dropdown-item" href="/number">tất cả</a></li>
+                                <li><a class="dropdown-item" href="/trang-thai/dang-cho">đang chờ</a></li>
+                                <li><a class="dropdown-item" href="/trang-thai/da-su-dung">đã sử dụng</a></li>
+                                <li><a class="dropdown-item" href="/trang-thai/da-huy">đã hủy</a></li>
                             </ul>
                         </div>
                     </div>
-                    <div class="col-md-3">
+                    <div class="col-md-2">
+                        <div class="form-group">
+                            <label for="inputEmail4" class="form-label">Nguồn cấp</label>
+                            <button style="text-align: left;padding: 3px;" class="form-control  dropdown-toggle"
+                                type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+                                Tất cả
+                            </button>
+                            <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                                <li><a class="dropdown-item" href="/thiet-bi">tất cả</a></li>
+                                <li><a class="dropdown-item" href="/device-connecting">đang kết nối</a></li>
+                                <li><a class="dropdown-item" href="/device-disconnect">ngưng kết nối</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
                         <div class="row">
                             <label for="inputEmail4" class="form-label col-md-12">Chọn thời gian</label>
                             <div class="col-md-6">
@@ -129,10 +163,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col-md-2">
-
-                    </div>
-                    <div class="col-md-3 search" style="margin-left: 111px;">
+                    <div class="col-md-2 search">
                         <div class="form-group">
                             <form action="" method="get">
                                 @csrf
@@ -142,9 +173,9 @@
                             </form>
                         </div>
                     </div>
-                    <div class="add-device">
-                        <a href="/them-dich-vu">
-                            <img src="/images/Component 3.png" alt="">
+                    <div class="add-device" style="top: 160px;">
+                        <a href="/add-number">
+                            <img src="/images/number.png" alt="">
                         </a>
                     </div>
 
@@ -154,81 +185,55 @@
                                 <table>
                                     <thead>
                                         <tr class="">
-                                            <th class="text-center">Mã dịch vụ</th>
+                                            <th class="text-center">STT</th>
+                                            <th class="text-center">Tên khách hàng</th>
                                             <th class="text-center">Tên dịch vụ</th>
-                                            <th class="text-center">Mô tả</th>
-                                            <th class="text-center">Trạng thái hoạt động</th>
+                                            <th class="text-center">Thời gian cấp</th>
+                                            <th class="text-center">Hạn sử dụng</th>
+                                            <th class="text-center">Trạng thái</th>
+                                            <th class="text-center">Nguồn cấp</th>
                                             <th class="text-center"><a href=""></a></th>
                                             <th class="text-center"><a href=""></a></th>
                                         </tr>
                                     </thead>
                                     <tbody>
                                         @foreach($data as $item)
-                                        <tr class="row100 body">
-                                            <td class="text-center">{{$item->service_code}}</td>
-                                            <td class="text-center">{{$item->service_name}}</td>
-                                            <td class="text-center">{{$item->service_content}}</td>
-                                            @if($item->service_status==1)
-                                            <td class="text-center"><i class='bx bxs-circle text-success'></i> Đang
-                                                hoạt động</td>
-                                            @else
-                                            <td class="text-center"><i class='bx bxs-circle text-danger'></i> Ngưng
-                                                hoạt động</td>
+                                        <tr class="">
+                                            <td class="text-center">{{$item->number}}{{$item->id}}</td>
+                                            <td class="text-center">{{$item->number_name}}</td>
+                                            <td class="text-center">{{$item->number_service}}</td>
+                                            <td class="text-center">{{$item->created_at}}</td>
+                                            <td class="text-center">{{$item->updated_at}}</td>
+                                            @if($item->number_status ==1)
+                                            <td class="text-left"><i class='bx bxs-circle text-info'></i>Đang chờ</td>
                                             @endif
-                                            <td class="text-center"><a class="text-info"
-                                                    href="/service-detail/{{$item->id}}">Chi tiết</a></td>
-                                            <td class="text-center"><a class="text-info"
-                                                    href="/edit-service/{{$item->id}}">Cập nhật</a></td>
+                                            @if($item->number_status ==2)
+                                            <td class="text-left"><i class='bx bxs-circle text-secondary'></i>Đã sử
+                                                dụng</td>
+                                            @endif
+                                            @if($item->number_status ==3)
+                                            <td class="text-left"><i class='bx bxs-circle text-danger'></i>Đã hủy</td>
+                                            @endif
+                                            <td class="text-center">{{$item->number_source}}</td>
+                                            <td class="text-center"><a class="text-info" href="">Chi tiết</a></td>
+                                            <td class="text-center"><a class="text-info" href="">Cập nhật</a></td>
                                         </tr>
                                         @endforeach
-
-
                                     </tbody>
                                 </table>
 
                             </div>
                         </div>
                     </div>
-                    <div class="col-md-12 d-flex justify-content-end" style="margin-top:10px ;">
 
-
-
-                        <!-- <li class="nav-item">
-                                    <a class="nav-link" href="#"><i class='bx bxs-left-arrow text-secondary'></i></a>
-                                </li>
-                                <li class="nav-item">
-                                    <a class="nav-link btn btn-primary" href="#">1</a>
-                                </li>
-                                <li class="nav-item">
-                                    <a class="nav-link text-secondary" href="#">2</a>
-                                </li>
-                                <li class="nav-item">
-                                    <a class="nav-link text-secondary" href="#">3</a>
-                                </li>
-                                <li class="nav-item">
-                                    <a class="nav-link text-secondary" href="#">4</a>
-                                </li>
-                                <li class="nav-item">
-                                    <a class="nav-link text-secondary" href="#">5</a>
-                                </li>
-                                <li class="nav-item">
-                                    <a class="nav-link text-secondary" href="#">...</a>
-                                </li>
-                                <li class="nav-item">
-                                    <a class="nav-link text-secondary" href="#">10</a>
-                                </li>
-                                <li class="nav-item">
-                                    <a class="nav-link" href="#"><i class='bx bxs-right-arrow text-secondary'></i></a>
-                                </li> -->
-
-
-                    </div>
                 </div>
             </div>
         </div>
     </div>
 </section>
-
+<div class="" style="position: fixed;top: 750px;right: 139px;">
+    {{ $data->links() }}
+</div>
 <script>
     let sidebar = document.querySelector(".sidebar");
     let sidebarBtn = document.querySelector(".sidebarBtn");

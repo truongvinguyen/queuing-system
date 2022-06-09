@@ -25,7 +25,7 @@
             </a>
         </li>
         <li>
-            <a href="#" class="">
+            <a href="/number" class="">
                 <i class='bx bx-layer'></i>
                 <span class="links_name">Cấp số</span>
             </a>

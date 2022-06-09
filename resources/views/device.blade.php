@@ -25,7 +25,7 @@
             </a>
         </li>
         <li>
-            <a href="#" class="">
+            <a href="/number" class="">
                 <i class='bx bx-layer'></i>
                 <span class="links_name">Cấp số</span>
             </a>
@@ -45,12 +45,27 @@
                 <span class="links_name">Cài đặt hệ thống</span>
             </a>
         </li>
+        @guest
+        @if (Route::has('login'))
+
+        @endif
+
+        @if (Route::has('register'))
+
+        @endif
+        @else
         <li class="log_out">
-            <a href="#">
+            <a href="{{ route('logout') }}" onclick="event.preventDefault();
+                document.getElementById('logout-form').submit();">
                 <i class='bx bx-log-in'></i>
-                <span class="links_name">Log out</span>
+                <span class="links_name">Đăng xuất</span>
             </a>
+            <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                @csrf
+            </form>
+
         </li>
+        @endguest
     </ul>
 </div>
 <section class="home-section">
@@ -119,7 +134,7 @@
                     <div class="col-md-3">
 
                     </div>
-                    <div class="col-md-3 search">
+                    <div class="col-md-3 search" >
                         <div class="form-group">
                             <form action="" method="get">
                                 @csrf
@@ -185,46 +200,15 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col-md-12 d-flex justify-content-end" style="margin-top:10px ;">
-
-
-                        {{ $data->links() }}
-                        <!-- <li class="nav-item">
-                                    <a class="nav-link" href="#"><i class='bx bxs-left-arrow text-secondary'></i></a>
-                                </li>
-                                <li class="nav-item">
-                                    <a class="nav-link btn btn-primary" href="#">1</a>
-                                </li>
-                                <li class="nav-item">
-                                    <a class="nav-link text-secondary" href="#">2</a>
-                                </li>
-                                <li class="nav-item">
-                                    <a class="nav-link text-secondary" href="#">3</a>
-                                </li>
-                                <li class="nav-item">
-                                    <a class="nav-link text-secondary" href="#">4</a>
-                                </li>
-                                <li class="nav-item">
-                                    <a class="nav-link text-secondary" href="#">5</a>
-                                </li>
-                                <li class="nav-item">
-                                    <a class="nav-link text-secondary" href="#">...</a>
-                                </li>
-                                <li class="nav-item">
-                                    <a class="nav-link text-secondary" href="#">10</a>
-                                </li>
-                                <li class="nav-item">
-                                    <a class="nav-link" href="#"><i class='bx bxs-right-arrow text-secondary'></i></a>
-                                </li> -->
-
-
-                    </div>
+                   
                 </div>
             </div>
         </div>
     </div>
 </section>
-
+<div class="" style="position: fixed;top: 750px;right: 139px;">
+    {{ $data->links() }}
+</div>
 <script>
     let sidebar = document.querySelector(".sidebar");
     let sidebarBtn = document.querySelector(".sidebarBtn");

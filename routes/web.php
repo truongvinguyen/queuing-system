@@ -36,3 +36,15 @@ Route::get('/them-dich-vu', [App\Http\Controllers\ServiceController::class, 'cre
 Route::post('/luu-dich-vu', [App\Http\Controllers\ServiceController::class, 'save'])->name('');
 Route::get('/service-active', [App\Http\Controllers\ServiceController::class, 'service_active'])->name('');
 Route::get('/service-shut-dow', [App\Http\Controllers\ServiceController::class, 'service_shut_dow'])->name('');
+Route::get('/service-detail/{id}', [App\Http\Controllers\ServiceController::class, 'service_detail'])->name('');
+Route::get('/edit-service/{id}', [App\Http\Controllers\ServiceController::class, 'edit_service'])->name('');
+Route::post('/update-service/{id}', [App\Http\Controllers\ServiceController::class, 'update_service'])->name('');
+
+//cấp số
+Route::get('/number', [App\Http\Controllers\NumberController::class, 'index'])->name('');
+Route::get('/add-number', [App\Http\Controllers\NumberController::class, 'create'])->name('');
+Route::get('/save-number/{number_name}/{number_service}', [App\Http\Controllers\NumberController::class, 'save'])->name('');
+Route::get('/ten-dich-vu/{name}', [App\Http\Controllers\NumberController::class, 'fill_name'])->name('');
+Route::get('/trang-thai/dang-cho', [App\Http\Controllers\NumberController::class, 'fill_dangcho'])->name('');
+Route::get('/trang-thai/da-su-dung', [App\Http\Controllers\NumberController::class, 'fill_done'])->name('');
+Route::get('/trang-thai/da-huy', [App\Http\Controllers\NumberController::class, 'fill_huy'])->name('');
