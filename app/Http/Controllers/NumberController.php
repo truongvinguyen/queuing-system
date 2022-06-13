@@ -8,6 +8,10 @@ use App\models\number;
 use Illuminate\Support\Facades\DB;
 class NumberController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
     public function index(){
         $data=number::paginate(8);
         $service=service::all();
@@ -60,5 +64,10 @@ class NumberController extends Controller
         $data=number::where('number_status', 3)->paginate(8);
         $service=service::all();
         return view('/number',compact('data','service'));
+    }
+    public function report(){
+        $data=number::paginate(8);
+        $service=service::all();
+        return view('/report',compact('data','service'));
     }
 }

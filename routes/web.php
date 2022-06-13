@@ -48,3 +48,18 @@ Route::get('/ten-dich-vu/{name}', [App\Http\Controllers\NumberController::class,
 Route::get('/trang-thai/dang-cho', [App\Http\Controllers\NumberController::class, 'fill_dangcho'])->name('');
 Route::get('/trang-thai/da-su-dung', [App\Http\Controllers\NumberController::class, 'fill_done'])->name('');
 Route::get('/trang-thai/da-huy', [App\Http\Controllers\NumberController::class, 'fill_huy'])->name('');
+//báo cáo cấp số
+Route::get('/report', [App\Http\Controllers\NumberController::class, 'report'])->name('');
+
+//role
+Route::get('/role', [App\Http\Controllers\RoleController::class, 'index'])->name('');
+Route::get('/add-role', [App\Http\Controllers\RoleController::class, 'create'])->name('');
+Route::post('/save', [App\Http\Controllers\RoleController::class, 'save'])->name('');
+Route::get('/edit-role', [App\Http\Controllers\RoleController::class, 'edit'])->name('');
+
+//account
+Route::get('/account', [App\Http\Controllers\accountController::class, 'index'])->name('');
+Route::get('/add-account', [App\Http\Controllers\accountController::class, 'create'])->name('');
+Route::get('/edit-account', [App\Http\Controllers\accountController::class, 'edit'])->name('');
+//normalizer_get_raw_decomposition
+Route::get('/note', [App\Http\Controllers\accountController::class, 'note'])->name('');

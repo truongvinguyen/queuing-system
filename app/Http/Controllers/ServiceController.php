@@ -7,6 +7,10 @@ use App\models\service;
 use Illuminate\Support\Facades\DB;
 class ServiceController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
     public function index(){
         if($key = request()->key){
             $data=DB::table('service')

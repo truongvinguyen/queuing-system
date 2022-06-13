@@ -1069,7 +1069,7 @@ table td {
   position: absolute;
   width: 80px;
   height: 94px;
-  left: 1348px;
+  left: 1341px;
   top: 160px;
 }
 
@@ -1363,4 +1363,26 @@ table td {
 
   color: #535261;
   margin-top: 10px;
+}
+.button-fillter{
+  position: absolute;
+  top: 15px;
+ right: 5px;
+}
+
+.button-fillter i{
+  font-size: 11px;
+}
+.list-group-item{
+  border: none !important;
+  background-color: #FFF2E7 !important;
+}
+.form-add-role{
+  background-color: #FFF2E7;
+  padding: 10px;
+  margin-bottom: 20px;
+  border-radius: 8px;
+}
+.form-group-account{
+  padding-top: 10px;
 }

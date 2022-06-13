@@ -34,8 +34,13 @@
                             @csrf
                             <div class="form-group first">
                                 <label for="username">Tên đăng nhập <span class="text-danger">*</span></label>
-                                <input type="email" class="form-control" name="email" placeholder="" autocomplete="off" >
-                                @error('password')
+                                <input type="email"  class="form-control email" name="email" placeholder="" autocomplete="off" >
+                                @error('email')
+                                   <style>
+                                        .email{
+                                            background-color: red;
+                                        }
+                                   </style>
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
                                     </span>
@@ -43,12 +48,22 @@
                             </div>
                             <div class="form-group last mb-3">
                                 <label for="password">Mật khẩu <span class="text-danger">*</span></label>
-                                <input name="password" type="password" class="form-control" placeholder="" autocomplete = "off">
+                                <input name="password" type="password" class="form-control pass" placeholder="" autocomplete = "off">
+                                @error('password')
+                                <style>
+                                    .pass{
+                                        background-color: red;
+                                    }
+                               </style>
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
                             </div>
 
                             <div class="d-flex mb-5 align-items-center">
-                                @if (Route::has('password.request'))
-                                <span class="ml-0"><a href="{{ route('password.request') }}" class="forgot-pass text-danger">Quên mật
+                                        @if (Route::has('password.request'))
+                                        <span class="ml-0"><a href="{{ route('password.request') }}" class="forgot-pass text-danger">Quên mật
                                         khẩu?</a></span>
                                         @endif
                             </div>

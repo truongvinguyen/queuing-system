@@ -8,6 +8,10 @@ use App\models\category;
 use Illuminate\Support\Facades\DB;
 class DeviceController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
     public function index(){
         if($key = request()->key){
             $data=DB::table('device')

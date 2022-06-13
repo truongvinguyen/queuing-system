@@ -40,10 +40,16 @@
 
 
         <li>
-            <a href="#">
+            <a class="" href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
                 <i class='bx bx-cog'></i>
-                <span class="links_name">Cài đặt hệ thống</span>
+                <span class="links_name">Cài đặt hệ thống  <i class='bx bx-dots-vertical-rounded'></i>
+                </span>
             </a>
+            <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                <li><a class="dropdown-item" href="/role">Quản lý vai trò</a></li>
+                <li><a class="dropdown-item" href="/account">Quản lý tài khoản</a></li>
+                <li><a class="dropdown-item" href="#">Nhật người dùng</a></li>
+            </ul>
         </li>
         @guest
         @if (Route::has('login'))

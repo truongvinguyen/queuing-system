@@ -1,5 +1,7 @@
 @extends('layouts.app')
-
+@section('title')
+Thêm dịch vụ
+@endsection
 @section('content')
 <div class="sidebar">
     <div class="logo-details d-flex justify-content-center align-items-center">
@@ -31,19 +33,22 @@
             </a>
         </li>
         <li>
-            <a href="#" class="">
+            <a href="/report" class="">
                 <i class='bx bx-trending-up'></i>
                 <span class="links_name">Báo cáo</span>
             </a>
         </li>
-
-
-
         <li>
-            <a href="#">
+            <a class="" href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
                 <i class='bx bx-cog'></i>
-                <span class="links_name">Cài đặt hệ thống</span>
+                <span class="links_name">Cài đặt hệ thống  <i class='bx bx-dots-vertical-rounded'></i>
+                </span>
             </a>
+            <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                <li><a class="dropdown-item" href="/role">Quản lý vai trò</a></li>
+                <li><a class="dropdown-item" href="/account">Quản lý tài khoản</a></li>
+                <li><a class="dropdown-item" href="#">Nhật người dùng</a></li>
+            </ul>
         </li>
         @guest
         @if (Route::has('login'))
@@ -139,13 +144,12 @@
                     <h5 class="text-primary" style="padding-left: 12px;">Quy tắc cấp số</h5>
                     <div class="row">
                         <div class="col-md-12">
-                            <ul class="list-group list-group-flush">
+                            <ul class="list-group list-group-flush" style="margin-left: 25px;">
                                 <li class="list-group-item list-group-item-service"> <input class="square" type="checkbox"> Tăng tự động từ: <input name="service_min" class="form-control form-control-service1" type="text"> <span style="margin-left: 85px;">đến</span> <input name="service_max" class="form-control form-control-service2" type="text"></li>
                                 <li class="list-group-item list-group-item-service"> <input class="square" type="checkbox">Prefix: <input name="service_Prefix" class="form-control form-control-service1" type="text"> </li>
                                 <li class="list-group-item list-group-item-service"> <input class="square" type="checkbox">Surfix: <input name="service_Surfix" class="form-control form-control-service1" type="text"> </li>
                                 <li class="list-group-item list-group-item-service"> <input class="square" type="checkbox">Reset mỗi ngày</li>   
                               </ul>
-                           
                         </div>
                     </div>
                 </div>

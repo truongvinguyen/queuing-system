@@ -1,5 +1,7 @@
 @extends('layouts.app')
-
+@section('title')
+Quản lý cấp số
+@endsection
 @section('content')
 <div class="sidebar">
     <div class="logo-details d-flex justify-content-center align-items-center">
@@ -31,7 +33,7 @@
             </a>
         </li>
         <li>
-            <a href="#" class="">
+            <a href="/report" class="">
                 <i class='bx bx-trending-up'></i>
                 <span class="links_name">Báo cáo</span>
             </a>
@@ -40,10 +42,16 @@
 
 
         <li>
-            <a href="#">
+            <a class="" href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
                 <i class='bx bx-cog'></i>
-                <span class="links_name">Cài đặt hệ thống</span>
+                <span class="links_name">Cài đặt hệ thống  <i class='bx bx-dots-vertical-rounded'></i>
+                </span>
             </a>
+            <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                <li><a class="dropdown-item" href="/role">Quản lý vai trò</a></li>
+                <li><a class="dropdown-item" href="/account">Quản lý tài khoản</a></li>
+                <li><a class="dropdown-item" href="#">Nhật người dùng</a></li>
+            </ul>
         </li>
         @guest
         @if (Route::has('login'))
@@ -71,10 +79,10 @@
 <section class="home-section">
     <nav>
         <div class="sidebar-button">
-            <span class="text-secondary">Thiết bị</span> <i class='bx bx-chevron-right text-secondary'></i><span
-                class="dashboard">Danh sách thiết bị</span>
+            <span class="text-secondary">Cấp số</span> <i class='bx bx-chevron-right text-secondary'></i><span
+                class="dashboard">Danh sách cấp số</span>
         </div>
-
+    
         <div class="profile-details d-flex justify-content-end align-items-center">
             <div class="container d-flex justify-content-end align-items-center">
                 <div class="row">
@@ -112,9 +120,10 @@
                                 <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
                                     <li><a class="dropdown-item" href="/number">tất cả</a></li>
                                     @foreach($service as $item)
-                                    <li><a class="dropdown-item" href="/ten-dich-vu/<?php echo str_replace(" ","-",$item->service_name) ?>">{{$item->service_name}}</a></li>
+                                    <li><a class="dropdown-item" href="/ten-dich-vu/<?php echo str_replace(" ","
+                                            -",$item->service_name) ?>">{{$item->service_name}}</a></li>
                                     @endforeach
-                                   
+
                                 </ul>
                             </div>
                         </div>
@@ -122,11 +131,11 @@
                     <div class="col-md-2">
                         <div class="form-group">
                             <label for="inputEmail4" class="form-label">Tình trạng</label>
-                            <button style="text-align: left;padding: 3px;" class="form-control  dropdown-toggle"
-                                type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+                            <button style="text-align: left;padding: 3px;" class="form-control dropdown-toggle"
+                                type="button" id="dropdownMenuButton3" data-bs-toggle="dropdown" aria-expanded="false">
                                 Tất cả
                             </button>
-                            <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                            <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton3">
                                 <li><a class="dropdown-item" href="/number">tất cả</a></li>
                                 <li><a class="dropdown-item" href="/trang-thai/dang-cho">đang chờ</a></li>
                                 <li><a class="dropdown-item" href="/trang-thai/da-su-dung">đã sử dụng</a></li>
@@ -182,7 +191,7 @@
                     <div class="col-md-12">
                         <div class="table100 ver1 m-b-110">
                             <div class="table100-body js-pscroll ps ">
-                                <table>
+                                <table id="table_id">
                                     <thead>
                                         <tr class="">
                                             <th class="text-center">STT</th>
@@ -245,5 +254,8 @@
             sidebarBtn.classList.replace("bx-menu-alt-right", "bx-menu");
     }
 </script>
-
+<script>< script >
+        $(document).ready(function () {
+            $('#table_id').DataTable();
+        });</script>
 @endsection
