@@ -79,8 +79,8 @@ Chỉnh sửa dịch vụ
 <section class="home-section">
     <nav>
         <div class="sidebar-button">
-            <span class="text-secondary">Thiết bị</span> <i class='bx bx-chevron-right text-secondary'></i><span
-                class="dashboard text-secondary">Danh sách thiết bị</span><i
+            <span class="text-secondary">Dịch vụ</span> <i class='bx bx-chevron-right text-secondary'></i><span
+                class="dashboard text-secondary">Danh sách dịch vụ</span><i
                 class='bx bx-chevron-right text-secondary'></i><span class="dashboard">Thêm dịch vụ</span>
         </div>
         <div class="profile-details d-flex justify-content-end align-items-center">

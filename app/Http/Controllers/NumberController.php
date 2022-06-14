@@ -13,7 +13,13 @@ class NumberController extends Controller
         $this->middleware('auth');
     }
     public function index(){
-        $data=number::paginate(8);
+        if($key = request()->key){
+            $data=DB::table('number')
+            ->select('*')
+            ->where('number_name','like','%'.$key.'%')
+            ->paginate(8);
+        }else{   $data=number::paginate(8);}
+      
         $service=service::all();
         return view('/number',compact('data','service'));
     }
@@ -22,15 +28,6 @@ class NumberController extends Controller
         return view('/add_number',compact('service'));
     }
     public function save(Request $request,$number_name,$number_service){
-    //     number::create([
-    //         'number' => 20100,
-    //         'number_name'=> ,
-    //         'number_service'=>$number_service,
-    //         'number_status'=>1,
-    //         'number_source'=>"kosk1", 
-    //         'created_at'=>date("H:i Y-m-d"),
-    //         'updated_at'=>,      
-    // ]);
     $data= array();
     $data['number'] = 20100;
     $data['number_name'] =$number_name;

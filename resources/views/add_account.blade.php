@@ -14,7 +14,7 @@ Thêm thiết bị
                 <span class="links_name">Dashboard</span>
             </a>
         </li>
-        <li class="active">
+        <li >
             <a href="/thiet-bi" class="">
                 <i class='bx bx-laptop'></i>
                 <span class="links_name">Thiết bị</span>
@@ -46,7 +46,7 @@ Thêm thiết bị
             </a>
             <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
                 <li><a class="dropdown-item" href="/role">Quản lý vai trò</a></li>
-                <li><a class="dropdown-item" href="/account">Quản lý tài khoản</a></li>
+                <li class="active"><a class="dropdown-item" href="/account">Quản lý tài khoản</a></li>
                 <li><a class="dropdown-item" href="#">Nhật người dùng</a></li>
             </ul>
         </li>
@@ -103,69 +103,80 @@ Thêm thiết bị
     <div class="home-content" id="device">
         <h3 class="text-primary" style="margin-left: 30px;font-size: 24px;margin-bottom: 15px;">Quản lý tài khoản
         </h3>
-        <form action="/luu-thiet-bi" method="post">
+        <form action="/save-account" method="post">
             <div class="form-box">
                 <div class="col-md-12">
                     <h5 class="text-primary">Thông tin tài khoản</h5>
                     <div class="row" style="padding: 5px;">
                         <div class="col-md-12">
-
+                            @if ($errors->any())
+                            <div class="alert alert-danger">
+                                <ul>
+                                    @foreach ($errors->all() as $error)
+                                    <li>{{ $error }}</li>
+                                    @endforeach
+                                </ul>
+                            </div>
+                            @endif
                             @csrf
                             <div class="row form-group-account">
                                 <div class="form-group col-md-6">
                                     <label for="exampleInputEmail1">Họ tên: <span class="text-danger">*</span>
                                     </label>
-                                    <input name="device_code" type="text" class="form-control"
-                                        placeholder="Nhập mã thiết bị">
+                                    <input value="{{ old('name') }}" name="name" type="text" class="form-control"
+                                        placeholder="Nhập họ và tên">
                                 </div>
                                 <div class="form-group col-md-6">
                                     <label for="exampleInputEmail1">Tên đăng nhập: <span class="text-danger">*</span>
                                     </label>
-                                    <input name="device_code" type="text" class="form-control"
-                                        placeholder="Nhập mã thiết bị">
+                                    <input value="{{ old('account_username') }}" name="account_username" type="text"
+                                        class="form-control" placeholder="Nhập tên đăng nhập">
                                 </div>
                             </div>
                             <div class="row form-group-account">
                                 <div class="form-group col-md-6">
                                     <label for="exampleInputEmail1">Số điện thoại: <span class="text-danger">*</span>
                                     </label>
-                                    <input name="device_name" type="text" class="form-control"
-                                        placeholder="Nhập tên thiết bị">
+                                    <input value="{{ old('account_number') }}" name="account_number" type="text"
+                                        class="form-control" placeholder="Nhập số điện thoại">
                                 </div>
                                 <div class="form-group col-md-6">
                                     <label for="exampleInputPassword1">Mật khẩu: <span
                                             class="text-danger">*</span></label>
-                                    <input name="device_username" type="text" class="form-control"
-                                        placeholder="Nhập tên đăng nhập">
+                                    <input name="password" type="password" class="form-control"
+                                        placeholder="Nhập mật khẩu">
                                 </div>
                             </div>
                             <div class="row form-group-account">
                                 <div class="form-group col-md-6">
                                     <label for="exampleInputEmail1">Email: <span class="text-danger">*</span>
                                     </label>
-                                    <input name="device_name" type="text" class="form-control"
-                                        placeholder="Nhập tên thiết bị">
+                                    <input value="{{ old('email') }}" name="email" type="text" class="form-control"
+                                        placeholder="Nhập Email">
                                 </div>
                                 <div class="form-group col-md-6">
                                     <label for="exampleInputPassword1">Nhập lại mật khẩu: <span
                                             class="text-danger">*</span></label>
-                                    <input name="device_username" type="password" class="form-control"
-                                        placeholder="Nhập tên đăng nhập">
+                                    <input name="password_confirmation" type="password" class="form-control"
+                                        placeholder="Nhập lại mật khẩu">
                                 </div>
                             </div>
                             <div class="row form-group-account">
                                 <div class="form-group col-md-6">
                                     <label for="exampleInputEmail1">Vai trò: <span class="text-danger">*</span>
                                     </label>
-                                    <select name="device_id" type="text" class="form-control" id="">
-                                        <option value=""></option>
+                                    <select name="account_role" class="form-control" id="">
+                                        @foreach($role as $item)
+                                        <option value="{{$item->id}}">{{$item->role_name}}</option>
+                                        @endforeach
                                     </select>
                                 </div>
                                 <div class="form-group col-md-6">
                                     <label for="exampleInputPassword1">Tình trạng: <span
                                             class="text-danger">*</span></label>
-                                    <select name="device_id" type="text" class="form-control" id="">
-                                        <option value=""></option>
+                                    <select name="account_status" class="form-control" id="">
+                                        <option value="1">Hoạt động</option>
+                                        <option value="2">Ngưng hoạt động</option>
                                     </select>
                                 </div>
                                 <div>

@@ -106,7 +106,7 @@ Quản lý cấp số
     <div class="home-content" id="device">
         <div class="number">
             <div class="col-md-12 ">
-                <h3 class="text-primary" style="margin-bottom: 30px;">Danh sách thiết bị</h3>
+                <h3 class="text-primary" style="margin-bottom: 30px;">Danh sách cấp số</h3>
                 <div class="row">
                     <div class="col-md-2">
                         <div class="form-group">

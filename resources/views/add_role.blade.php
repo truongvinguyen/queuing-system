@@ -20,7 +20,7 @@ Thêm dịch vụ
                 <span class="links_name">Thiết bị</span>
             </a>
         </li>
-        <li class="active">
+        <li >
             <a href="/dich-vu" class="">
                 <i class='bx bx-conversation'></i>
                 <span class="links_name">Dịch vụ</span>
@@ -38,14 +38,14 @@ Thêm dịch vụ
                 <span class="links_name">Báo cáo</span>
             </a>
         </li>
-        <li>
+        <li class="active">
             <a class="" href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
                 <i class='bx bx-cog'></i>
                 <span class="links_name">Cài đặt hệ thống  <i class='bx bx-dots-vertical-rounded'></i>
                 </span>
             </a>
             <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-                <li><a class="dropdown-item" href="/role">Quản lý vai trò</a></li>
+                <li class="active"><a class="dropdown-item" href="/role">Quản lý vai trò</a></li>
                 <li><a class="dropdown-item" href="/account">Quản lý tài khoản</a></li>
                 <li><a class="dropdown-item" href="#">Nhật người dùng</a></li>
             </ul>
@@ -76,9 +76,9 @@ Thêm dịch vụ
 <section class="home-section">
     <nav>
         <div class="sidebar-button">
-            <span class="text-secondary">Thiết bị</span> <i class='bx bx-chevron-right text-secondary'></i><span
-                class="dashboard text-secondary">Danh sách thiết bị</span><i
-                class='bx bx-chevron-right text-secondary'></i><span class="dashboard">Thêm dịch vụ</span>
+            <span class="text-secondary">Vai trò</span> <i class='bx bx-chevron-right text-secondary'></i><span
+                class="dashboard text-secondary">Danh sách vai trò</span><i
+                class='bx bx-chevron-right text-secondary'></i><span class="dashboard">Thêm vai trò</span>
         </div>
         <div class="profile-details d-flex justify-content-end align-items-center">
             <div class="container d-flex justify-content-end align-items-center">
@@ -101,11 +101,11 @@ Thêm dịch vụ
         </div>
     </nav>
     <div class="home-content" id="device">
-        <h3 class="text-primary" style="margin-left: 30px;font-size: 24px;margin-bottom: 15px;">Quản lý dịch vụ</h3>
+        <h3 class="text-primary" style="margin-left: 30px;font-size: 24px;margin-bottom: 15px;">Quản lý vai trò</h3>
         <form action="/save" method="post">
             <div class="form-box">
                 <div class="col-md-12">
-                    <h5 class="text-primary" style="padding-left: 12px;">Thông tin dịch vụ</h5>
+                    <h5 class="text-primary" style="padding-left: 12px;">Thông tin vai trò </h5>
                     <div class="row">
                         <div class="col-md-12">
                             @csrf
@@ -134,51 +134,51 @@ Thêm dịch vụ
                                         <div class="col-md-12 form-add-role">
                                             <div class="col-md-6">
                                                 <ul class="list-group">
-                                                    <h5 class="text-primary">Nhóm chức năng A</h5>
+                                                    <h5 class="text-primary">Nhóm chức năng thiết bị</h5>
                                                     <li class="list-group-item">
-                                                        <input class="form-check-input me-1" name="role_id_detail" type="checkbox" value="1"
+                                                        <input class="form-check-input me-1"  name="role_id_detail[]" type="checkbox" value="device"
                                                             aria-label="...">
-                                                        Tất cả
+                                                       Xem danh sách thiết bị
                                                     </li>
                                                     <li class="list-group-item">
-                                                        <input class="form-check-input me-1"  name="role_id_detail" type="checkbox" value="2"
+                                                        <input class="form-check-input me-1"  name="role_id_detail[]" type="checkbox" value="device.detail"
                                                             aria-label="...">
-                                                       Chức năng x
+                                                      Xem chi tiết thiết bị
                                                     </li>
                                                     <li class="list-group-item">
-                                                        <input class="form-check-input me-1"  name="role_id_detail" type="checkbox" value="3"
+                                                        <input class="form-check-input me-1"  name="role_id_detail[]" type="checkbox" value="device.add"
                                                             aria-label="...">
-                                                            Chức năng y
+                                                           Thêm thiết bị
                                                     </li>
                                                     <li class="list-group-item">
-                                                        <input class="form-check-input me-1"  name="role_id_detail" type="checkbox" value="4"
+                                                        <input class="form-check-input me-1"  name="role_id_detail[]" type="checkbox" value="device.edit"
                                                             aria-label="...">
-                                                            Chức năng z
+                                                           Chỉnh sửa thiết bị
                                                     </li>
                                                 </ul>
                                             </div>
                                             <div class="col-md-6">
                                                 <ul class="list-group">
-                                                    <h5 class="text-primary">Nhóm chức năng B</h5>
+                                                    <h5 class="text-primary">Nhóm chức năng dịch vụ</h5>
                                                     <li class="list-group-item">
-                                                        <input class="form-check-input me-1"  name="role_id_detail" type="checkbox" value="5"
+                                                        <input class="form-check-input me-1"  name="role_id_detail[]" type="checkbox" value="service"
                                                             aria-label="...">
-                                                        Tất cả
+                                                       Xem danh sách dịch vụ
                                                     </li>
                                                     <li class="list-group-item">
-                                                        <input class="form-check-input me-1"  name="role_id_detail" type="checkbox" value="6"
+                                                        <input class="form-check-input me-1"  name="role_id_detail[]" type="checkbox" value="service.detail"
                                                             aria-label="...">
-                                                       Chức năng x
+                                                       Xem chi tiết dịch vụ
                                                     </li>
                                                     <li class="list-group-item">
-                                                        <input class="form-check-input me-1"  name="role_id_detail" type="checkbox" value="7"
+                                                        <input class="form-check-input me-1"  name="role_id_detail[]" type="checkbox" value="service.add"
                                                             aria-label="...">
-                                                            Chức năng y
+                                                       Thêm dịch vụ
                                                     </li>
                                                     <li class="list-group-item">
-                                                        <input class="form-check-input me-1"  name="role_id_detail" type="checkbox" value="8"
+                                                        <input class="form-check-input me-1"  name="role_id_detail[]" type="checkbox" value="service.edit"
                                                             aria-label="...">
-                                                            Chức năng z
+                                                       Chỉnh sửa dịch vụ
                                                     </li>
                                                 </ul>
                                             </div>

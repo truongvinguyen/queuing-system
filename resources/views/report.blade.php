@@ -105,7 +105,7 @@ Lập báo cáo
     <div class="home-content" id="device">
         <div class="number">
             <div class="col-md-12 ">
-                <h3 class="text-primary" style="margin-bottom: 30px;">Danh sách cấp số</h3>
+                <h3 class="text-primary" style="margin-bottom: 30px;">Danh sách báo cóa</h3>
                 <div class="row">
                     <div class="col-md-4" style="padding-bottom: 15px;">
                         <div class="row">

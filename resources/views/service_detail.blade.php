@@ -76,9 +76,9 @@ Chi tiết dịch vụ
 <section class="home-section">
     <nav>
         <div class="sidebar-button">
-            <span class="text-secondary">Thiết bị</span> <i class='bx bx-chevron-right text-secondary'></i><span
-                class="dashboard text-secondary">Danh sách thiết bị</span><i
-                class='bx bx-chevron-right text-secondary'></i><span class="dashboard">Chi tiết thiết bị</span>
+            <span class="text-secondary">Dịch vụ</span> <i class='bx bx-chevron-right text-secondary'></i><span
+                class="dashboard text-secondary">Danh sách dịch vụ</span><i
+                class='bx bx-chevron-right text-secondary'></i><span class="dashboard">Chi tiết dịch vụ</span>
         </div>
         <div class="profile-details d-flex justify-content-end align-items-center">
             <div class="container d-flex justify-content-end align-items-center">
@@ -101,7 +101,7 @@ Chi tiết dịch vụ
         </div>
     </nav>
     <div class="home-content" id="device">
-        <h3 class="text-primary" style="margin-left: 30px;font-size: 24px;margin-bottom: 20px;">Quản lý thiết bị
+        <h3 class="text-primary" style="margin-left: 30px;font-size: 24px;margin-bottom: 20px;">Quản lý dịch vụ
         </h3>
 
 

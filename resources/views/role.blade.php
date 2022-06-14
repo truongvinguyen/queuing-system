@@ -76,8 +76,8 @@ Quản lý cấp số
 <section class="home-section">
     <nav>
         <div class="sidebar-button">
-            <span class="text-secondary">Cấp số</span> <i class='bx bx-chevron-right text-secondary'></i><span
-                class="dashboard">Danh sách cấp số</span>
+            <span class="text-secondary">Vai trò</span> <i class='bx bx-chevron-right text-secondary'></i><span
+                class="dashboard">Danh sách vai trò</span>
         </div>
     
         <div class="profile-details d-flex justify-content-end align-items-center">
@@ -103,7 +103,7 @@ Quản lý cấp số
     <div class="home-content" id="device">
         <div class="number">
             <div class="col-md-12 ">
-                <h3 class="text-primary" style="margin-bottom: 30px;">Danh sách thiết bị</h3>
+                <h3 class="text-primary" style="margin-bottom: 30px;">Danh sách vai trò</h3>
                 <div class="row d-flex justify-content-end">
                     <div class="col-md-3 search">
                         <div class="form-group">
@@ -133,25 +133,14 @@ Quản lý cấp số
                                         </tr>
                                     </thead>
                                     <tbody>
-                                      
+                                       @foreach($data as $item)
                                         <tr class="">
-                                            <td class="text-center">Kế toán</td>
-                                            <td class="text-center">6</td>
-                                            <td class="text-center">Thống kê số liệu</td>
+                                            <td class="text-center">{{$item->role_name}}</td>
+                                            <td class="text-center">{{$item->role_qty}}</td>
+                                            <td class="text-center">{{$item->role_content}}</td>
                                             <td class="text-center"><a class="text-info" href="/edit-role">Cập nhật</a></td>
                                         </tr>
-                                        <tr class="">
-                                            <td class="text-center">Kế toán</td>
-                                            <td class="text-center">6</td>
-                                            <td class="text-center">Thống kê số liệu</td>
-                                            <td class="text-center"><a class="text-info" href="/edit-role">Cập nhật</a></td>
-                                        </tr>
-                                        <tr class="">
-                                            <td class="text-center">Kế toán</td>
-                                            <td class="text-center">6</td>
-                                            <td class="text-center">Thống kê số liệu</td>
-                                            <td class="text-center"><a class="text-info" href="/edit-role">Cập nhật</a></td>
-                                        </tr>
+                                        @endforeach
                                     </tbody>
                                 </table>
 

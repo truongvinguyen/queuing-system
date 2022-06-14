@@ -76,9 +76,9 @@ Chỉnh sửa vài trò
 <section class="home-section">
     <nav>
         <div class="sidebar-button">
-            <span class="text-secondary">Thiết bị</span> <i class='bx bx-chevron-right text-secondary'></i><span
-                class="dashboard text-secondary">Danh sách thiết bị</span><i
-                class='bx bx-chevron-right text-secondary'></i><span class="dashboard">Thêm dịch vụ</span>
+            <span class="text-secondary">Vai trò</span> <i class='bx bx-chevron-right text-secondary'></i><span
+                class="dashboard text-secondary">Danh sách vai trò</span><i
+                class='bx bx-chevron-right text-secondary'></i><span class="dashboard">Chỉnh sửa vi trò</span>
         </div>
         <div class="profile-details d-flex justify-content-end align-items-center">
             <div class="container d-flex justify-content-end align-items-center">
@@ -101,11 +101,11 @@ Chỉnh sửa vài trò
         </div>
     </nav>
     <div class="home-content" id="device">
-        <h3 class="text-primary" style="margin-left: 30px;font-size: 24px;margin-bottom: 15px;">Quản lý dịch vụ</h3>
+        <h3 class="text-primary" style="margin-left: 30px;font-size: 24px;margin-bottom: 15px;">Quản lý vai trò</h3>
         <form action="/save" method="post">
             <div class="form-box">
                 <div class="col-md-12">
-                    <h5 class="text-primary" style="padding-left: 12px;">Thông tin dịch vụ</h5>
+                    <h5 class="text-primary" style="padding-left: 12px;">Thông tin vai trò</h5>
                     <div class="row">
                         <div class="col-md-12">
                             @csrf

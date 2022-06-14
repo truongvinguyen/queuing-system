@@ -76,7 +76,7 @@ Quản lý cấp số
 <section class="home-section">
     <nav>
         <div class="sidebar-button">
-            <span class="text-secondary">Tài khoản</span> <i class='bx bx-chevron-right text-secondary'></i><span
+            <a href="/account"><span class="text-secondary">Tài khoản</span></a> <i class='bx bx-chevron-right text-secondary'></i><span
                 class="dashboard">Danh sách tài khoản</span>
         </div>
 
@@ -107,17 +107,15 @@ Quản lý cấp số
                 <div class="row d-flex justify-content-end">
                     <div class="col-md-3">
                         <div class="form-group">
-                            <label for="inputEmail4" class="form-label">Tên dịch vụ</label>
+                            <label for="inputEmail4" class="form-label">Tên vai trò</label>
                             <div class="dropdown">
                                 <button style="text-align: left;padding: 3px;" class="form-control  dropdown-toggle"
                                     type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown"
                                     aria-expanded="false">
                                     Tất cả
                                 </button>
-                                <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                                <ul style="width: 305px !important;" class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
                                     <li><a class="dropdown-item" href="/number">tất cả</a></li>
-
-
                                 </ul>
                             </div>
                         </div>
@@ -154,43 +152,21 @@ Quản lý cấp số
                                         </tr>
                                     </thead>
                                     <tbody>
-
+                                        @foreach($data as $item)
                                         <tr class="">
-                                            <td class="text-center">dữ liệu tĩnh 1</td>
-                                            <td class="text-center">Nguyễn Trường vi</td>
-                                            <td class="text-center">1234567890</td>
-                                            <td class="text-center">vi@gmail.com</td>
-                                            <td class="text-center">Kế toán</td>
+                                            <td class="text-center">{{$item->account_username}}</td>
+                                            <td class="text-center">{{$item->name}}</td>
+                                            <td class="text-center">{{$item->account_number}}</td>
+                                            <td class="text-center">{{$item->email}}</td>
+                                            <td class="text-center">{{$item->role_name}}</td>
+                                            @if($item->account_status ==1)
                                             <td class="text-center"><i class='bx bxs-circle text-success'></i> Đang hoạt động</td>
-                                            <td class="text-center"><a class="text-info" href="/edit-account">Cập nhật</a></td>
+                                            @else
+                                            <td class="text-center"><i class='bx bxs-circle text-danger'></i> Ngưng hoạt động</td>
+                                            @endif
+                                            <td class="text-center"><a class="text-info" href="/edit-account/{{$item->id}}">Cập nhật</a></td>
                                         </tr>
-                                        <tr class="">
-                                            <td class="text-center">dữ liệu tĩnh 1</td>
-                                            <td class="text-center">Nguyễn Trường vi</td>
-                                            <td class="text-center">1234567890</td>
-                                            <td class="text-center">vi@gmail.com</td>
-                                            <td class="text-center">Kế toán</td>
-                                            <td class="text-center"><i class='bx bxs-circle text-success'></i> Đang hoạt động</td>
-                                            <td class="text-center"><a class="text-info" href="/edit-account">Cập nhật</a></td>
-                                        </tr>
-                                        <tr class="">
-                                            <td class="text-center">dữ liệu tĩnh 1</td>
-                                            <td class="text-center">Nguyễn Trường vi</td>
-                                            <td class="text-center">1234567890</td>
-                                            <td class="text-center">vi@gmail.com</td>
-                                            <td class="text-center">Kế toán</td>
-                                            <td class="text-center"><i class='bx bxs-circle text-success'></i> Đang hoạt động</td>
-                                            <td class="text-center"><a class="text-info" href="/edit-account">Cập nhật</a></td>
-                                        </tr>
-                                        <tr class="">
-                                            <td class="text-center">dữ liệu tĩnh 1</td>
-                                            <td class="text-center">Nguyễn Trường vi</td>
-                                            <td class="text-center">1234567890</td>
-                                            <td class="text-center">vi@gmail.com</td>
-                                            <td class="text-center">Kế toán</td>
-                                            <td class="text-center"><i class='bx bxs-circle text-success'></i> Đang hoạt động</td>
-                                            <td class="text-center"><a class="text-info" href="/edit-account">Cập nhật</a></td>
-                                        </tr>
+                                        @endforeach
                                     </tbody>
                                 </table>
 
