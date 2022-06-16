@@ -167,7 +167,7 @@ Thêm thiết bị
                                     </label>
                                     <select name="account_role" class="form-control" id="">
                                         @foreach($role as $item)
-                                        <option value="{{$item->id}}">{{$item->role_name}}</option>
+                                        <option value="{{$item->id_role}}">{{$item->role_name}}</option>
                                         @endforeach
                                     </select>
                                 </div>

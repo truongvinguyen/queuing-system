@@ -112,10 +112,13 @@ Quản lý cấp số
                                 <button style="text-align: left;padding: 3px;" class="form-control  dropdown-toggle"
                                     type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown"
                                     aria-expanded="false">
-                                    Tất cả
+                                      <?php echo $namefill ?>
                                 </button>
                                 <ul style="width: 305px !important;" class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-                                    <li><a class="dropdown-item" href="/number">tất cả</a></li>
+                                <li><a class="dropdown-item" href="/account">tất cả</a></li>
+                                    @foreach($role as $item)
+                                    <li><a class="dropdown-item" href="/fill-role-name/{{$item->id_role}}/{{$item->role_name}}">{{$item->role_name}}</a></li>
+                                    @endforeach
                                 </ul>
                             </div>
                         </div>
@@ -152,6 +155,7 @@ Quản lý cấp số
                                         </tr>
                                     </thead>
                                     <tbody>
+                                        @if($data != null)
                                         @foreach($data as $item)
                                         <tr class="">
                                             <td class="text-center">{{$item->account_username}}</td>
@@ -167,6 +171,9 @@ Quản lý cấp số
                                             <td class="text-center"><a class="text-info" href="/edit-account/{{$item->id}}">Cập nhật</a></td>
                                         </tr>
                                         @endforeach
+                                        @else
+                                        Chưa có người dùng
+                                        @endif
                                     </tbody>
                                 </table>
 
@@ -179,6 +186,9 @@ Quản lý cấp số
         </div>
     </div>
 </section>
+<div class="" style="position: fixed;top: 750px;right: 139px;">
+    {{ $data->links() }}
+</div>
 <script>
     let sidebar = document.querySelector(".sidebar");
     let sidebarBtn = document.querySelector(".sidebarBtn");

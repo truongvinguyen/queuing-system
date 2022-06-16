@@ -103,7 +103,7 @@ Chỉnh sủa tài khoản
     <div class="home-content" id="device">
         <h3 class="text-primary" style="margin-left: 30px;font-size: 24px;margin-bottom: 15px;">Quản lý tài khoản
         </h3>
-        <form action="/luu-thiet-bi" method="post" id="formclear">
+        <form action="/update/{{$data->id}}" method="post" id="formclear">
             <div class="form-box">
                 <div class="col-md-12">
                     <h5 class="text-primary">Thông tin tài khoản</h5>
@@ -167,7 +167,7 @@ Chỉnh sủa tài khoản
                                     </label>
                                     <select name="account_role" class="form-control" id="">
                                         @foreach($role as $item)
-                                        <option  value="{{$item->id}}" {{($data->account_role==$item->id)?'selected':''}} >{{$item->role_name}}</option>
+                                        <option  value="{{$item->id_role}}"  {{($item->id_role==$data->account_role)?'selected':' '}} >{{$item->role_name}}</option>
                                         @endforeach
                                     </select>
                                 </div>

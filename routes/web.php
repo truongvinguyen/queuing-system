@@ -63,5 +63,8 @@ Route::get('/account', [App\Http\Controllers\accountController::class, 'index'])
 Route::get('/add-account', [App\Http\Controllers\accountController::class, 'create'])->name('acount.add');
 Route::post('/save-account', [App\Http\Controllers\accountController::class, 'save'])->name('account.save');
 Route::get('/edit-account/{id}', [App\Http\Controllers\accountController::class, 'edit'])->name('');
+Route::post('/update/{id}', [App\Http\Controllers\accountController::class, 'update'])->name('');
+Route::get('/fill-role-name/{id}/{role_name}', [App\Http\Controllers\accountController::class, 'fill'])->name('');
+
 //normalizer_get_raw_decomposition
 Route::get('/note', [App\Http\Controllers\accountController::class, 'note'])->name('');
